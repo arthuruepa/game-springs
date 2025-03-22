@@ -13,8 +13,8 @@
             <form action="/jogo/update" method="post">
                 <input type="hidden" name="id" value="${jogo.id}">
                 <div class="form-group">
-                    <label for="nome">TItulo:</label>
-                    <input type="text" name="nome" class="form-control" value="${jogo.titulo}">
+                    <label for="titulo">Título:</label>
+                    <input type="text" name="titulo" class="form-control" value="${jogo.titulo}">
                 </div>
                 <div class="form-group">
                     <label for="categoria">Categoria:</label>
@@ -28,14 +28,14 @@
                     <label for="plataforma">Plataforma(s):</label>
                     <c:forEach var="p" items="${plataformas}">
                         <div class="custom-control custom-checkbox">
-                            <input type="checkbox" ${jogo.plataforma.contains(p) ? "cheked" : ""} class="custom-control-input" name="plataformas" value="${p.id}" id="${p.id}">
+                            <input type="checkbox" ${jogo.plataformas.contains(p) ? "checked" : ""} class="custom-control-input" name="plataformas" value="${p.id}" id="${p.id}">
                             <label class="custom-control-label" for="${p.id}">${p.nome}</label>
                         </div>
                     </c:forEach>
                 </div>
                 <br>
                 <a href="/jogo/list" class="btn btn-primary">Voltar</a>
-                <button type="submit" class="btn btn-sucess">Salvar</button>
+                <button type="submit" class="btn btn-success">Salvar</button>
             </form>
         </div>
     </body>

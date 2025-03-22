@@ -12,23 +12,24 @@
             <h1>Novo Jogo</h1>
             <form action="/jogo/insert" method="post">
                 <div class="form-group">
-                    <label for="nome">Titulo:</label>
-                    <input type="text" name="titulo" class="form-control">
+                    <label for="titulo">Título:</label>
+                    <input type="text" name="titulo" class="form-control" required>
                 </div>
                 <div class="form-group">
-                    <label for="categoria">Categoria</label>
-                    <select name="categoria" class="form-select">
+                    <label for="categoria">Categoria:</label>
+                    <select name="categoria" class="form-select" required>
+                        <option value="" disabled selected>Selecione uma categoria</option>
                         <c:forEach var="c" items="${categorias}">
                             <option value="${c.id}">${c.nome}</option>
                         </c:forEach>
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="plataforma">Plataforma(s):</label>
+                    <label for="plataformas">Plataforma(s):</label>
                     <c:forEach var="p" items="${plataformas}">
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" name="plataformas" value="${p.id}" id="${p.id}">
-                            <label class="custom-control-label" for="${p.id}">${p.nome}</label>
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" name="plataformas" value="${p.id}" id="plataforma-${p.id}">
+                            <label class="form-check-label" for="plataforma-${p.id}">${p.nome}</label>
                         </div>
                     </c:forEach>
                 </div>
