@@ -1,10 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib uri="jakarta.tags.core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
         <meta charset="UTF-8" />
-        <title>Home</title>
-        
+        <title>Categorias</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    
+    
+    
+    
         <style>
             body {
                 font-family: Arial, sans-serif;
@@ -41,12 +47,10 @@
     
     
     
-    
     </head>
     <body>
 
-
-        <nav>
+<nav>
             <ul>
                 <li><a href="/categoria/list">Categorias</a></li>
                 <li><a href="/jogo/list">Jogos</a></li>
@@ -54,7 +58,27 @@
             </ul>
         </nav>
 
-        <h1>Olá Spring!!!</h1>
+
+        <div class="container">
+            <h1>Categorias</h1>
+                <a href="/categoria/insert" class="btn btn-primary">Novo Categoria</a>
+                <table class="table">
+                    <tr>
+                        <th>Id</th>
+                        <th>Nome</th>
+                        <th>&nbsp;</th>
+                    </tr>
+                    <c:forEach var="item" items="${categorias}">
+                        <tr>
+                            <td>${item.id}</td>
+                            <td>${item.nome}</td>
+                            <td>
+                                <a href="/categoria/update?id=${item.id}" class="btn btn-warning">Editar</a>
+                                <a href="/categoria/delete?id=${item.id}" class="btn btn-danger">Excluir</a>
+                            </td>
+                        </tr>
+                    </c:forEach>
+                </table>
+        </div>
     </body>
 </html>
-
